@@ -110,4 +110,14 @@ public final class Prefs {
     private static SharedPreferences get(Context context) {
         return context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
     }
+
+    public static final String LAST_BATTERY_LEVEL = "last_battery_level";
+
+    public static void setLastBatteryLevel(Context context, int level) {
+        edit(context).putInt(LAST_BATTERY_LEVEL, level).commit();
+    }
+
+    public static int getLastBatteryLevel(Context context) {
+        return read(context).getInt(LAST_BATTERY_LEVEL, 50);
+    }
 }
